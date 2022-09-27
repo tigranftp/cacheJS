@@ -32,6 +32,19 @@ test('set with count below zero', () => {
 });
 
 
+test('usual use', () => {
+    let c = new Cache()
+    c.set("key", 228, 3)   
+    expect(c.get("key")).toBe(228)
+    expect(c.get("key")).toBe(228)
+    expect(c.get("key")).toBe(228)
+    expect(c.get("key")).toBe(null)
+    expect(c.get("key")).toBe(null)
+    expect(c.get("key")).toBe(null)
+    expect(c.get("key")).toBe(null)
+});
+
+
 
 // // установлен ключ без количества обращений
 // test('', () => {
