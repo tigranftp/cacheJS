@@ -24,6 +24,14 @@ test('set with no count', () => {
 });
 
 
+test('set with count below zero', () => {
+    let c = new Cache()
+    c.set("key", "value", -5)
+    let val = c.get("key")   
+    expect(val).toBe(null)
+});
+
+
 
 // // установлен ключ без количества обращений
 // test('', () => {
