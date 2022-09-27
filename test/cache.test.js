@@ -45,6 +45,17 @@ test('usual use', () => {
 });
 
 
+test('test print stats', () => {
+    let c = new Cache()
+    c.get("3145da")
+    c.set("3145da", "kek", 1)
+    c.get("3145da")
+    let logs = c.Stat().split('\n')
+    expect(logs[0].indexOf('GET | KEY = 3145da | THE KEY WAS NEVER SET') > 0).toBe(true)
+    expect(logs[1].indexOf('SET | KEY = 3145da | VALUE =  kek | COUNT = 1') > 0).toBe(true)
+    expect(logs[2].indexOf('GET | KEY = 3145da |  VALUE = kek | 1 ---> 0') > 0).toBe(true)
+});
+
 
 // // установлен ключ без количества обращений
 // test('', () => {

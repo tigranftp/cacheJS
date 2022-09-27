@@ -2,7 +2,7 @@ class Cache{
     #_mapOfValues;
     #_mapOfCounts;
     #_arrayOflogs;
-    
+
     constructor() {
 		this.#_mapOfValues = new Map()
         this.#_mapOfCounts = new Map()
@@ -34,7 +34,7 @@ class Cache{
 
     set(key, value, count = 1) {
         if (count < 1){
-            
+            count = 0
         }
         this.#_mapOfCounts[key] = count
         this.#_mapOfValues[key] = value
@@ -46,10 +46,10 @@ class Cache{
         this.#_arrayOflogs.push(log)
     }
 
-    printStat() {
+    Stat() {
         let res = ""
         this.#_arrayOflogs.forEach(element => res += element + '\n')
-        alert(res)
+        return res
     }
 }
 
